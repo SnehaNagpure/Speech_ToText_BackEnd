@@ -25,7 +25,7 @@ app.use(cors({
   credentials: true,
 }));
 
-app.get("/cors-test", (req, res) => {
+app.get("/api/cors-test", (req, res) => {
   res.json({ message: "✅ CORS success!" });
 });
 
