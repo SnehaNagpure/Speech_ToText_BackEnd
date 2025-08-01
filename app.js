@@ -12,6 +12,10 @@ const cors = require("cors");
 //   credentials: true,
 // }));
 
+const allowedOrigins = process.env.CLIENT_ORIGIN
+  ? process.env.CLIENT_ORIGIN.split(',')  // allow multiple comma-separated origins
+  : ['http://localhost:5173'];
+  
 app.use(cors({
 
   origin: function (origin, callback) {
