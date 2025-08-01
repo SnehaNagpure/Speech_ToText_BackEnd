@@ -7,10 +7,7 @@ const userRoutes = require('./routes/userRoutes');
 const audioRoutes = require('./routes/audioRoutes');
 app.use(express.json());
 const cors = require("cors");
-// app.use(cors({
-//   origin: "http://localhost:5173", // ✅ Your React app's URL
-//   credentials: true,
-// }));
+
 
 const allowedOrigins = process.env.CLIENT_ORIGIN
   ? process.env.CLIENT_ORIGIN.split(',')  // allow multiple comma-separated origins
@@ -27,6 +24,10 @@ app.use(cors({
   },
   credentials: true,
 }));
+
+app.get("/cors-test", (req, res) => {
+  res.json({ message: "✅ CORS success!" });
+});
 
 // Connect to MongoDB
 connectDB();
